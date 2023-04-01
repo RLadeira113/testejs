@@ -1,6 +1,7 @@
-import {Chart, CategoryScale, LinearScale, PointElement, LineElement, Title } from "chart.js";
-import {Line, Utils} from 'react-chartjs-2';
-import options from '../../components/linechart';
+import {Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip } from "chart.js";
+import {Line} from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+//import options from '../../components/linechart';
 
 import Layout from '../../components/layout';
 
@@ -13,17 +14,88 @@ import { resolve } from 'styled-jsx/css';
 
 
 
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title );
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Title, ChartDataLabels );
+console.log(Chart.version);
+const optionsX = {
+  plugins: {
+    datalabels: { // This code is used to display data values
+      display: false,
+      color: 'grey',
+      formatter: function(value,context){
+        return value.toFixed(2)
+      }
+    },
 
+    title: {
+      display: true,
+      text: 'X Acceleration',
+      font: {size: 20}
+    },
 
+    tooltip: {
+      callbacks: {
+        title: function(){}
+      }
 
+    }
+  },
+};
 
+const optionsY = {
+  plugins: {
+    datalabels: { // This code is used to display data values
+      display: false,
+      color: 'grey',
+      formatter: function(value,context){
+        return value.toFixed(2)
+      }
+    },
+
+    title: {
+      display: true,
+      text: 'Y Acceleration',
+      font: {size: 20}
+    },
+
+    tooltip: {
+      callbacks: {
+        title: function(){}
+      }
+
+    }
+  },
+};
+
+const optionsZ = {
+  plugins: {
+    datalabels: { // This code is used to display data values
+      display: false,
+      color: 'grey',
+      formatter: function(value,context){
+        return value.toFixed(2)
+      }
+    },
+
+    title: {
+      display: true,
+      text: 'Z Acceleration',
+      font: {size: 20}
+    },
+
+    tooltip: {
+      callbacks: {
+        title: function(){}
+      }
+
+    }
+  },
+};
 
 
 
 export default function FirstPost() {
 
-  const [intervalTimer, setTimer] = useState(5);
+  const [intervalTimer, setTimer] = useState(1);
   const [amostrasNum, setAmostras] = useState(15);
   
 
@@ -33,16 +105,11 @@ export default function FirstPost() {
   const [y, setY] = useState(null);
   const [z, setZ] = useState(null);
    
-  const titleX = {
-    display: true,
-    text: 'Titulo'
-    
-  }
   const dataX = {
     labels: times,
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'X value',
         fill: false,
         lineTension: 0,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -69,7 +136,7 @@ export default function FirstPost() {
     labels: times,
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Y value',
         fill: false,
         lineTension: 0,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -95,7 +162,7 @@ export default function FirstPost() {
     labels: times,
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Z value',
         fill: false,
         lineTension: 0,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -185,12 +252,12 @@ export default function FirstPost() {
             <button type="button" onClick={onClickAmostras}> Atualizar </button>
             <p>{"número de amostras atuais: " + amostrasNum}</p>
             
-            <h2><center>Eixo X</center></h2>
-            <Line options= {options} data= {dataX} width={400} height={100} />
-            <h2><center>Eixo Y</center></h2>
-            <Line options={options} data={dataY} width={400} height={100} />
-            <h2><center>Eixo Z</center></h2>
-            <Line options={options} data={dataZ} width={400} height={100} />
+            {/* <h2><center>Eixo X</center></h2> */}
+            <Line options= {optionsX} data= {dataX} width={400} height={150} />
+            {/* <h2><center>Eixo Y</center></h2> */}
+            <Line options={optionsY} data={dataY} width={400} height={150} />
+            {/* <h2><center>Eixo Z</center></h2> */}
+            <Line options={optionsZ} data={dataZ} width={400} height={150} />
             
         </Layout>
 
