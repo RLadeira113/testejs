@@ -1,5 +1,6 @@
 import {Chart, CategoryScale, LinearScale, PointElement, LineElement } from "chart.js";
 import {Line, Utils} from 'react-chartjs-2';
+import options from '../../components/linechart';
 
 import Layout from '../../components/layout';
 
@@ -12,15 +13,7 @@ import { resolve } from 'styled-jsx/css';
 
 
 
-
-
-
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
-
-
-
-
-
 
 
 
@@ -193,11 +186,11 @@ export default function FirstPost() {
             <p>{"número de amostras atuais: " + amostrasNum}</p>
             
             <h2><center>Eixo X</center></h2>
-            <Line title={titleX} options= {titleX} data= {dataX} width={400} height={100} />
+            <Line options= {options} data= {dataX} width={400} height={100} />
             <h2><center>Eixo Y</center></h2>
-            <Line data={dataY} width={400} height={100} />
+            <Line options={options} data={dataY} width={400} height={100} />
             <h2><center>Eixo Z</center></h2>
-            <Line data={dataZ} width={400} height={100} />
+            <Line options={options} data={dataZ} width={400} height={100} />
             
         </Layout>
 
