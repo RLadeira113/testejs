@@ -11,8 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Teste</h1>
-      <p>Paragrafo exemplo</p>
+      <h1>Integração de Sistemas Ciber-Físicos</h1>
+      <p>Este é o site do primeiro trabalho da cadeira de ISCF</p>
       <Link href='/posts/first-post'>Página do gráfico</Link>
       
     </div>
