@@ -28,7 +28,7 @@ const optionsX = {
 
     title: {
       display: true,
-      text: 'X Acceleration',
+      text: 'Aceleração em X',
       font: {size: 20}
     },
 
@@ -53,7 +53,7 @@ const optionsY = {
 
     title: {
       display: true,
-      text: 'Y Acceleration',
+      text: 'Aceleração em Y',
       font: {size: 20}
     },
 
@@ -78,7 +78,7 @@ const optionsZ = {
 
     title: {
       display: true,
-      text: 'Z Acceleration',
+      text: 'Aceleração em Z',
       font: {size: 20}
     },
 
@@ -250,7 +250,7 @@ export default function FirstPost() {
             <label for="amostras">Número de amostras: </label>
             <input type="text" id="amostras" name="amostras"/>
             <button type="button" onClick={onClickAmostras}> Atualizar </button>
-            <p>{"número de amostras atuais: " + amostrasNum}</p>
+            <p>{"Número de amostras atual: " + amostrasNum}</p>
             
             {/* <h2><center>Eixo X</center></h2> */}
             <Line options= {optionsX} data= {dataX} width={400} height={150} />
