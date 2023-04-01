@@ -1,4 +1,4 @@
-import {Chart, CategoryScale, LinearScale, PointElement, LineElement } from "chart.js";
+import {Chart, CategoryScale, LinearScale, PointElement, LineElement, Title } from "chart.js";
 import {Line, Utils} from 'react-chartjs-2';
 import options from '../../components/linechart';
 
@@ -13,7 +13,7 @@ import { resolve } from 'styled-jsx/css';
 
 
 
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title );
 
 
 
